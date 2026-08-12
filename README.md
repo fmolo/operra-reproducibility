@@ -14,7 +14,7 @@ Part of the [OPeR-RA workshop series](https://www.swissrn.org/contents/activitie
 As part of this workshop you will fork this repository and turn it into a small
 but complete reproducible project: a dynamic report generated from real data, an
 analysis pipeline you run end to end, the container it all runs inside, and a
-published archive with its own DOI.
+published archive with its own Digital Object Identifier (DOI).
 
 **No prior experience with Git, Docker, Snakemake or Nextflow is expected.** Having seen some R or Python before helps in Module 2, but the exercises are written to be followed without it. The workshop environment runs in your browser, so there is nothing to install.
 
