@@ -6,38 +6,28 @@ format:
     embed-resources: true
 execute:
   warning: false
+editor: 
+  markdown: 
+    wrap: 72
 ---
+## MY COOOL REPORT 🚀🚀🚀
 
-# Adapt your Module 2 report
-
-This file is the destination for the report you created in Module 2. Do not
-write a second report from scratch. Instead:
-
-1. Copy your Module 2 `.qmd` file over this file, keeping the name
-   `4_report.qmd`.
-2. Copy any local files it needs, such as `references.bib`, into this directory.
-3. Keep the report structure and dynamic-reporting features you already wrote.
-4. Adapt its code chunks to read and present the Snakemake workflow outputs.
-
-The report is rendered from `demo/snakemake/`, so these paths are available:
-
-| Path | Produced by | Contents |
-|---|---|---|
-| `work/1_names_clean.csv` | `1_clean.py` | Zurich names data with English column names |
-| `work/2_yearly_winners.csv` | `2_summarize.R` | most common names by year and sex, including ties |
-| `work/3_top_names.csv` | `3_prepare_plots.py` | top names by sex for 2021–2025, including cutoff ties |
-| `work/3_selected_names.csv` | `3_prepare_plots.py` | yearly births for Peter and Daniel |
+```{python}
+import pandas as pd
+datclean = pd.read_csv("work/1_names_clean.csv")
+datclean.head(5)
+```
 
 ## Read the Snakemake outputs
 
-Replace the download and transformation chunks in your Module 2 report with
-one of these language-specific examples. `datclean` and `summaries` preserve
-the Module 2 names; `top10` and `subset` replace the transformations previously
-performed inside the two plotting chunks.
+Replace the download and transformation chunks in your Module 2 report
+with one of these language-specific examples. `datclean` and `summaries`
+preserve the Module 2 names; `top10` and `subset` replace the
+transformations previously performed inside the two plotting chunks.
 
 For an R report:
 
-```r
+``` r
 datclean <- read.csv("work/1_names_clean.csv")
 summaries <- read.csv("work/2_yearly_winners.csv")
 top10 <- read.csv("work/3_top_names.csv")
@@ -46,34 +36,37 @@ subset <- read.csv("work/3_selected_names.csv")
 
 For a Python report:
 
-```python
+``` python
 import pandas as pd
 
 datclean = pd.read_csv("work/1_names_clean.csv")
+
 summaries = pd.read_csv("work/2_yearly_winners.csv")
 top10 = pd.read_csv("work/3_top_names.csv")
 subset = pd.read_csv("work/3_selected_names.csv")
 ```
 
-Use `summaries` for the table, `top10` for the top-names plot, and `subset`
-for the names-over-time plot. These files have already been transformed by the
-workflow, so do not repeat those transformations in the report.
+Use `summaries` for the table, `top10` for the top-names plot, and
+`subset` for the names-over-time plot. These files have already been
+transformed by the workflow, so do not repeat those transformations in
+the report.
 
 At minimum, adapt your report to:
 
-- replace the Module 2 download and transformation code with reads of the
-  workflow-generated CSV files;
-- display `2_yearly_winners.csv` as the captioned table;
-- recreate the top-names and names-over-time plots from the prepared inputs,
-  retaining their figure labels and cross-references;
-- include a value computed with inline code; and
-- report the R or Python environment used to render it.
+-   replace the Module 2 download and transformation code with reads of
+    the workflow-generated CSV files;
+-   display `2_yearly_winners.csv` as the captioned table;
+-   recreate the top-names and names-over-time plots from the prepared
+    inputs, retaining their figure labels and cross-references;
+-   include a value computed with inline code; and
+-   report the R or Python environment used to render it.
 
 After each edit, run:
 
-```bash
+``` bash
 snakemake --cores 1
 ```
 
-Then open `results/4_report.html`. When only this file changes, Snakemake
-re-runs the report rule while leaving the upstream analysis outputs untouched.
+Then open `results/4_report.html`. When only this file changes,
+Snakemake re-runs the report rule while leaving the upstream analysis
+outputs untouched.

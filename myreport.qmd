@@ -12,6 +12,7 @@ format:
     toc: true # add a table of contents
   pdf:
     toc: true
+  docx: default
 execute: 
   warning: false
 ---
